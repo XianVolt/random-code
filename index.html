@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Code | Text Encryption</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      color: #202437;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #202b52;
+      color: white;
+      padding: 22px 8%;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    main {
+      width: min(850px, 90%);
+      margin: 55px auto;
+    }
+
+    .hero, .info {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 24px rgba(20, 30, 60, 0.08);
+      margin-bottom: 22px;
+    }
+
+    .hero h2 {
+      font-size: 32px;
+      margin: 0 0 12px;
+    }
+
+    .hero p, .info p {
+      color: #596078;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 11px 18px;
+      background: #405de6;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #3049c4;
+    }
+
+    code {
+      background: #eef0f7;
+      padding: 3px 7px;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      color: #747b90;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Random Code</h1>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Welcome to Random Code!</h2>
+      <p>A simple place for coding projects, experiments, and useful tools.</p>
+      <a class="button" href="https://github.com/XianVolt/random-code">
+        View GitHub Repository
+      </a>
+    </section>
+
+    <section class="info">
+      <h2>Text Encryption Tool</h2>
+      <p>
+        This project includes a Python program that can encrypt text
+        with a password and decrypt it again using the same password.
+      </p>
+      <p>To use it, install the required library:</p>
+      <p><code>pip install cryptography</code></p>
+      <p>Then run <code>python encryption.py</code>.</p>
+      <a class="button" href="encryption.py">View Python Code</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made by XianVolt · Random Code</p>
+  </footer>
+</body>
+</html>
