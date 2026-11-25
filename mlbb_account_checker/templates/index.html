@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MLBB Account Checker</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><main><header><b>MLBB CHECKER</b><span>PLAYER PROFILE LOOKUP</span></header>
+<section class="hero"><small>MOBILE LEGENDS: BANG BANG</small><h1>Player <em>Lookup</em></h1>
+<p>Enter your Player ID and Server ID to check available public profile details.</p></section>
+<section class="panel"><form id="form"><label>PLAYER ID<input id="pid" inputmode="numeric" placeholder="e.g. 123456789" required></label>
+<label>SERVER ID<input id="sid" inputmode="numeric" placeholder="e.g. 1234" required></label>
+<button id="btn">CHECK ACCOUNT</button></form><p id="msg" aria-live="polite"></p>
+<div id="result" hidden><h2>Account details</h2><div class="cards">
+<article><small>USERNAME</small><strong id="username">—</strong></article>
+<article><small>LEVEL</small><strong id="level">—</strong></article>
+<article><small>CREATED</small><strong id="created">—</strong></article></div><p id="note"></p></div></section>
+<footer>Unofficial community lookup. Not affiliated with Moonton. Never enter your password or OTP.</footer></main>
+<script>
+const form=document.querySelector("#form"),msg=document.querySelector("#msg"),btn=document.querySelector("#btn");
+form.addEventListener("submit",async e=>{e.preventDefault();msg.textContent="Checking...";btn.disabled=true;
+document.querySelector("#result").hidden=true;
+try{const res=await fetch("/api/check",{method:"POST",headers:{"Content-Type":"application/json"},
+body:JSON.stringify({player_id:document.querySelector("#pid").value,server_id:document.querySelector("#sid").value})});
+const d=await res.json();if(!res.ok||!d.success)throw Error(d.error||"Lookup failed");
+for(const k of ["username","level","created"])document.querySelector("#"+k).textContent=d[k];
+document.querySelector("#note").textContent=d.note||"";document.querySelector("#result").hidden=false;msg.textContent="Lookup complete.";
+}catch(err){msg.textContent=err.message;}finally{btn.disabled=false;}});
+</script></body></html>
