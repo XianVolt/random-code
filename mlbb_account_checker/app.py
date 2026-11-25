@@ -13,9 +13,9 @@ def check():
     data = request.get_json(silent=True) or {}
     pid = str(data.get("player_id", "")).strip()
     sid = str(data.get("server_id", "")).strip()
-    if not re.fullmatch(r"\\d{5,15}", pid):
+    if not re.fullmatch(r"\d{5,15}", pid):
         return jsonify(success=False, error="Enter a valid numeric Player ID."), 400
-    if not re.fullmatch(r"\\d{1,8}", sid):
+    if not re.fullmatch(r"\d{1,8}", sid):
         return jsonify(success=False, error="Enter a valid numeric Server ID."), 400
     try:
         r = requests.get(API_URL.format(player_id=pid, server_id=sid),
